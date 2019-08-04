@@ -21,15 +21,7 @@ function steps(n) {
   for (let i = 1; i <= n; i++) {
     // #  i
     // space n-i
-    let str = '';
-
-    for (let j = 1; j <= i; j++) {
-      str = str + '#';
-    }
-
-    for (let k = 1; k <= n - i; k++) {
-      str = str + ' ';
-    }
+    let str = [...Array(i).fill('#'), ...Array(n - i).fill(' ')].join('');
 
     console.log(str);
   }
