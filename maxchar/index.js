@@ -8,10 +8,9 @@
 function maxChar(str) {
   let charNum = {};
 
-  for (const c of str.split('')) {
+  for (const c of str) {
     charNum[c] = charNum[c] ? charNum[c] + 1 : 1;
   }
-  console.log(charNum);
 
   const keys = Object.keys(charNum);
   let maxChar = keys[0];
