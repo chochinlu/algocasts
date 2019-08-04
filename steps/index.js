@@ -18,11 +18,14 @@
 //       '####'
 
 function steps(n) {
-  for (let i = 1; i <= n; i++) {
-    // #  i
-    // space n-i
-    let str = [...Array(i).fill('#'), ...Array(n - i).fill(' ')].join('');
+  // #  i
+  // space n-i
 
+  for (let row = 1; row <= n; row++) {
+    let str = '';
+    for (let column = 1; column <= n; column++) {
+      str = str + (column <= row ? '#' : ' ');
+    }
     console.log(str);
   }
 }
