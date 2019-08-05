@@ -1,13 +1,11 @@
+const parentheseMap = new Map([['(', ')'], ['[', ']'], ['{', '}']]);
+
 const isValid = function(s) {
   const stack = [];
 
   for (const c of s) {
-    if (c === '(') {
-      stack.push(')');
-    } else if (c === '[') {
-      stack.push(']');
-    } else if (c === '{') {
-      stack.push('}');
+    if (parentheseMap.has(c)) {
+      stack.push(parentheseMap.get(c));
     } else if (stack.length === 0 || stack.pop() !== c) {
       return false;
     }
