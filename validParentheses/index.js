@@ -2,38 +2,14 @@ const isValid = function(s) {
   const stack = [];
 
   for (const c of s) {
-    if (['(', '{', '['].includes(c)) {
-      stack.push(c);
-    } else {
-      if (c === ')') {
-        if (stack.length === 0) {
-          return false;
-        }
-
-        if (stack.pop() !== '(') {
-          return false;
-        }
-      }
-
-      if (c === ']') {
-        if (stack.length === 0) {
-          return false;
-        }
-
-        if (stack.pop() !== '[') {
-          return false;
-        }
-      }
-
-      if (c === '}') {
-        if (stack.length === 0) {
-          return false;
-        }
-
-        if (stack.pop() !== '{') {
-          return false;
-        }
-      }
+    if (c === '(') {
+      stack.push(')');
+    } else if (c === '[') {
+      stack.push(']');
+    } else if (c === '{') {
+      stack.push('}');
+    } else if (stack.length === 0 || stack.pop() !== c) {
+      return false;
     }
   }
 
